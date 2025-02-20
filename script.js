@@ -1,5 +1,5 @@
 let btns = document.querySelectorAll("button");
-let div = document.querySelector("div");
+let div = document.querySelector(".two");
 
 let humanScore = 0;
 let compScore = 0;
@@ -28,27 +28,41 @@ function playRound(humanchoice, compChoice) {
     someString = "Scissor cuts paper, you lost this round!";
   } else {
     humanScore++;
-    someString = `you won this round ${humanchoice} beats ${compChoice}`;
+    someString = `you won this round!  ${humanchoice} beats ${compChoice}`;
   }
 
-  let txt = document.createTextNode(someString);
+  let txt = document.createElement("p");
+  txt.textContent = someString;
+  txt.setAttribute(
+    "style",
+    "color: white; font-size: 20px; text-align: center"
+  );
   div.appendChild(txt);
+  someString = "";
 
   let finalTxt;
+  finalTxt.setAttribute("style", "color: red; ");
 
   if (humanScore === 5 && compScore < 5) {
     finalTxt = document.createTextNode(
       `You won this game ${humanScore} to ${compScore}!`
     );
-  } else {
+    finalTxt.setAttribute(
+      "style",
+      "Color: green; font-weight: bold; font-size: 30px; text-align: center"
+    );
+    div.appendChild(finalTxt);
+  } else if (compScore === 5 && humanScore < 5) {
     finalTxt = document.createTextNode(
       `You lost this game ${humanScore} to ${compScore}!`
     );
-  }
-  div.appendChild(finalTxt);
+    finalTxt.setAttribute(
+      "style",
+      "Color: red; font-weight: bold; font-size: 30px; text-align: center"
+    );
+    div.appendChild(finalTxt);
+  } else finalTxt.remove();
 }
-
-// the variables will take the return values of the functions
 
 btns.forEach((btn) => {
   btn.addEventListener("click", () => {
@@ -57,5 +71,3 @@ btns.forEach((btn) => {
     playRound(humanChoice, compChoice); // Play the round
   });
 });
-
-// Append the text node to the div

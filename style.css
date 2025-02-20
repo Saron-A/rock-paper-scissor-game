@@ -2,4 +2,43 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  /* outline: 2px solid red; */
+  background-color: black;
+  color: white;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 100vh;
+}
+
+header,
+h1 {
+  margin: 15px;
+  padding: 20px;
+  text-align: center;
+}
+
+.one {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  align-items: center;
+  height: 20vh;
+}
+
+button {
+  margin: 10px;
+  padding: 5px;
+  border-radius: 3px;
+  width: 100px;
+  background-color: white;
+  color: black;
+}
+.two {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
